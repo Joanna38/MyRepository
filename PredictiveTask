@@ -5,6 +5,8 @@ SELECT loan_status,
   FROM loan
  GROUP BY loan_status;
  
+ ALTER TABLE loan ADD IfDefault INT DEFAULT 0;
+ 
  UPDATE loan
  SET IfDefault=1
  WHERE loan_status='Charged Off' or loan_status='Default' or loan_status='Does not meet the credit policy. Status:Charged Off' or loan_status='Late (31-120 days)';
